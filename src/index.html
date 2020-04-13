@@ -1,0 +1,94 @@
+<style>button{width: 170px; color: grey;}</style>
+<h1 style="text-align: center; margin: 0;">Compile nim</h1>
+<div>
+
+  <fieldset style="text-align: center;" id="fieldsetfile">
+    <legend>File to compile</legend>
+    <div id="file">
+
+    </div>
+    <div>
+      <button style="background-color: grey;" onclick="api.jsnCdev(document.querySelector('#filename').value.trim())">Dev build</button>
+      <button style="background-color: grey;" onclick="api.jsnCrelease(document.querySelector('#filename').value.trim())">Release build</button>
+      <br>
+      <input type="checkbox" id="run" name="run" value="1" checked>
+      <label for="run"> Run after compile</label><br>
+    </div>
+  </fieldset>
+</div>
+
+<br>
+
+<details>
+  <summary style="cursor: pointer;">Details</summary>
+  <br>
+
+  <fieldset>
+    <legend>Extra</legend>
+
+    <div style="text-align: left; display: inline-block; width: 30%;">
+      <input type="checkbox" id="stacktrace" name="stacktrace" value="1">
+      <label for="stacktrace"> Stracktrace</label><br>
+    
+      <input type="checkbox" id="linetrace" name="linetrace" value="1">
+      <label for="linetrace"> Linetrace</label><br>
+    </div>
+
+    <div style="text-align: left; display: inline-block; width: 30%;">
+      <input type="checkbox" id="optspeed" name="optspeed" value="1">
+      <label for="optspeed"> -opt:speed</label><br>
+    
+      <input type="checkbox" id="optsize" name="optsize" value="1">
+      <label for="optsize"> -opt:size</label><br>
+    </div>
+
+    <div style="text-align: left; display: inline-block; width: 30%;">
+      <input type="checkbox" id="threads" name="threads" value="1">
+      <label for="threads"> --threads</label><br>
+      
+      <input type="checkbox" id="debugger" name="debugger" value="1">
+      <label for="debugger"> --debugger:native</label><br>
+    </div>
+
+    <p><i>Learn more: <a href="https://nim-lang.org/docs/nimc.html">Command line switches</a></i></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Compiler</legend>
+    <div style="text-align: left; display: inline-block; width: 30%;">
+      <input type="checkbox" id="compilergcc" name="compilergcc" value="1">
+      <label for="compilergcc"> GCC</label><br>
+    </div>
+    <div style="text-align: left; display: inline-block; width: 30%;">
+      <input type="checkbox" id="compilerclang" name="compilerclang" value="1">
+      <label for="compilerclang"> Clang</label><br>
+    </div>
+    <div style="text-align: left; display: inline-block; width: 30%;">
+      <input type="checkbox" id="compilervcc" name="compilervcc" value="1">
+      <label for="compilervcc"> VCC</label><br>
+    </div>
+
+    <p><i>Learn more: <a href="https://nim-lang.org/faq.html#how-do-i-use-a-different-c-compiler-than-the-default-one">Supported compilers</a></i></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Advanced</legend>
+    <div style="text-align: left; display: inline-block; width: 280px; margin-right: 10px;">
+      <label for="passc"> --passC: (comma separated)</label><br>
+      <input id="passc">
+    </div>
+    
+    <div style="text-align: left; display: inline-block; width: 280px;">
+      <label for="passl"> --passL: (comma separated)</label><br>
+      <input id="passl">
+    </div>
+
+    <p><i>Learn more: <a href="https://gcc.gnu.org/onlinedocs/gcc/Invoking-GCC.html">GCC</a>, <a href="https://clang.llvm.org/docs/ClangCommandLineReference.html">Clang</a>, <a href="https://docs.microsoft.com/en-us/cpp/build/reference/compiler-command-line-syntax">VCC</a></i></p>
+  </fieldset>
+</details>
+
+<br>
+<fieldset>
+  <legend>Output</legend>
+  <textarea id="output" style="min-height: 300px; font-size: 12px;"></textarea>
+</fieldset>
